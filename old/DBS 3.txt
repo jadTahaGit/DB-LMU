@@ -1,0 +1,30 @@
+jad.taha@campus.lmu.de
+DBS - Übungsblatt 3
+
+Aufgabe 1: 
+----------
+
+Der natürliche Verbund ist identisch zu Kreuzprodukt in dem Fall, dass die zwei beteiligten Relationen die gleichen Attribute haben. 
+
+Denn normalerweise was Kreuzprodukt macht, ist alle möglichen Komibinationen zu bilden. Im Gegenteil zu dem natürlichen Verbund, wo nur passenden Kombinationen gebildet werden, samt meine ich die Datensätze der beiden beteiligten Tabellen miteinander verknüpft, deren Werte an dem gleichnamigen Attribute überstimmen.   
+Allerdings wenn die Zwei beteiligten Relationen die gleichen Attribute haben, dann ist der natürliche Vebund identisch zu Kreuzprodukt.
+
+---------------------------------------------------------------------------------
+
+Aufgabe 2:
+----------
+
+R = S÷T
+
+
+----------------------------------------------------------------------------------
+
+Aufgabe 3:
+----------
+
+a) π lname(σ Sitz=Berlin(L) )
+b) π tname(π tnr(π lnr(σ Sitz=Berlin(L) ) ) )       
+c) π tname(π tnr(π lnr(σ lname=Schulz(L) ) ) )       
+d) π lname(π lnr(π pnr(σ ORT=Meschede(P) ) ) )       
+
+

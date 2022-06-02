@@ -1,0 +1,142 @@
+Aufgabe 4-1:
+-------------
+
+Ich habe auch ein Screenshot von dem Rationale algebra gemacht check es ab!
+Bei unique attribute die keine Schlüssel sind braucht man keine schlüssel. (Nicht ganz sicher).
+Die Reinfolge bem Joinen von LTP und L   ist egal (in Rat.Alge und SQL ).
+
+A) 
+Select DISTINCT lname
+FROM l
+WHERE SITZ = "BERLIN" AND STATUS >= 15;
+
+B) Natural Joint:
+
+SELECT DISTINCT TNAME, LNAME
+FROM LTP NATURAL JOIN L NATURAL JOIN T
+
+C) 
+SELECT DISTINCT LNAME 
+FROM LTP JOIN L ON LTP.LNR = L.LNR JOIN T ON T.NR = LTP.TNR
+WHERE GEWICHT > 16
+
+D) 
+SELECT DISTINCT ORT
+FROM L JOIN LTP USING (lnr) JOIN P USING (Pnr)
+WEHRE lname = "SCHMIDT"
+
+
+
+E) 
+
+(Erste Lösung)
+Erklärung:
+----------
+Namen und Farben aller Teile bestimmen (P3, P4). 
+p3 und p4 sollen enthalten sein. (Deshalb Projektion nur auf pnr) 
+Und wir brauchen die Teilnummer. 
+=> Tname und Tfarbe
+
+SQL:
+-----
+SELECT DISTINCT tname, färbe
+FROM LTP ltp1, T, LTP ltp2
+WHERE T.tnr = ltp1.tnr
+AND ltp1.tnr = ltp2.tnr
+AND ltp1.pnr = "P3"
+AND ltp2.pnr = "P4"
+
+
+
+(Zweite Lösung: Ein Student hat eher eine andere Lösung mit Schnittmenge statt Quitten) 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aufgabe 2:
+-----------
+A)
+INSERT INTO T (tnr, tname, färbe, Gewicht)
+VALUES ("T7", "FLUXKOMPENSATOR", "SILBER", 140);
+
+INSERT INTO LTP (lnr, tnr, pnr, menge)
+VALUES("l5", "T7", "P1", 1);
+
+
+INSERT INTO LTP (lnr, tnr, pnr, menge)
+VALUES("l5", "T7", "P1", 1);
+
+
+B)
+UPDATE LTP
+SET menge= 2*menge
+WHERE pnr = "p4" AND lnr = "L1"
+
+
+C) 
+UPDATE L
+SET lname = "SCHMIDT-SChulz", status = status +10
+WHERE lnr = "L3";
+
+UPDATE LTP 
+SET lnr = "l3"
+WHERE lnr = "l4";
+
+
+DELETE FROM L 
+WEHERE lnr = "L4";
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aufgabe 3:
+-----------
+A)(SEHE Screenshot)
+
+SELECT * 
+FROM T1 CROSS JOIN T2;
+
+
+B)(SEHE Screenshot)
+
+SELECT *
+FROM T JOIN T2 ON T1.id = T2.id;
+
+
+C)
+SELECT *
+FROM T1 NaturalJOIN T2;
+
+SELECT *
+FROM T1 JOIN T2 USING (id);
+
+D)
+SELECT *
+From T1 RICHT JOIN T2 ON T1.id = T2.id;
+
+
+
+E)
+SELECT *
+FROM T1 LEFT JOIN T2 ON T1.id = T2.id;
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Frage: 
+
+1) Screen Shot: Unterschied equiJoin und Join On ?
+=> 
+Ähnlich aber:
+Beim Join on 
+Doppelte splatten gelöscht wird. 
+
+Beim Equipment Join nicht
+
+
+2) Was versteht man unter diesen Duplikats dings?
+=> Distinct nur verwenden wenn es Duplikat gibt

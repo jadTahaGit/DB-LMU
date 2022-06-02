@@ -1,0 +1,69 @@
+CREATE TABLE L ()
+Lnr INTEGER PRIMARY KEY
+lname VARCHAR(100) NOT NULL
+Sitz VARCHAR(100)
+
+
+CREATE TABLE T ()
+Lnr INTEGER PRIMARY KEY
+tname VARCHAR(100) NOT NULL
+Fare. VARCHAR(100)
+Gewicht FLOAT
+Preis DECIMAL(8,4) CHECK (preis > 0)
+
+
+
+CREATE TABLE P ()
+Pnr INTEGER PRIMARY KEY
+pname VARCHAR(100) NOT NULL
+Ort VARCHAR(100)
+
+
+CREATE TABLE LTP()
+Lnr INTEGER REFERENCES L(lnr)
+tnr INTEGER REFERENCES T(tnr)
+Per INTEGER REFERENCES P(pnr)
+Menge INTEGER CHECK (menge > 0)
+PRIMARY KEY (lnr, tnr, pnr)
+
+
+
+
+
+Notes:
+REFERENCES ist für attribute die aus einem bestehen
+FORign keys ist for mehrere 
+FORIGN KEY(lnr, tnr) REFRENCE ....
+
+
+B) 
+ALTER TABLE P
+ADD (status INT DEFAULT 5);
+
+
+C) 
+ALTER TABLE T
+MODIFY Gewicht INT CHECK (Gewicht > 0)
+
+ALTER TABLE T 
+MODIFY (Gewicht INT)
+ALTER TABLE T
+ADD CONSTRAINT constraint CHECK (Gewicht >0)
+
+
+D)
+ALTER TABLE P
+DROP Ort;
+
+E) 
+DROP TABLE LTP;
+DROP TABLE L;
+DROP TABLE T;
+DROP TABLE P
+
+
+
+
+
+Notes: Constraints sind Beschränkungen.
+Schnittstelle von LMU !!
